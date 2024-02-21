@@ -2,27 +2,20 @@
 # Telegram Ban All Bot 
 # Creator - RiZoeL
 
-import logging
-import re
-import os
-import sys
 import asyncio
-from telethon import TelegramClient, events
-import telethon.utils
-from telethon.tl import functions
-from telethon.tl.functions.channels import LeaveChannelRequest
-from asyncio import sleep
-from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins, ChatAdminRights
-from telethon.tl.functions.channels import EditBannedRequest
 from datetime import datetime
-from var import Var
+import logging
+import os
+import re
+import sys
 from time import sleep
-from telethon.errors.rpcerrorlist import FloodWaitError
-from telethon.tl import functions
+
+from telethon import TelegramClient, events, utils
+from telethon.tl import functions, types
+from telethon.tl.functions.channels import LeaveChannelRequest, EditBannedRequest
 from telethon.tl.types import (
-    ChannelParticipantsAdmins,
-    ChannelParticipantsKicked,
     ChatBannedRights,
+    ChannelParticipantsAdmins,
     UserStatusEmpty,
     UserStatusLastMonth,
     UserStatusLastWeek,
@@ -30,6 +23,9 @@ from telethon.tl.types import (
     UserStatusOnline,
     UserStatusRecently,
 )
+from telethon.errors.rpcerrorlist import FloodWaitError
+
+from var import Var
 
 RIGHTS = ChatBannedRights(
     until_date=None,
